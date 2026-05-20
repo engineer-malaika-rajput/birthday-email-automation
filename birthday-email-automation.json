@@ -1,0 +1,160 @@
+{
+  "name": "birthday-email-automation",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "edb8a99e-1632-4941-9067-41de41637219",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appniRLLaxmWVKaSj",
+          "mode": "list",
+          "cachedResultName": "User",
+          "cachedResultUrl": "https://airtable.com/appniRLLaxmWVKaSj"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblKpsuc4YXqE4jT5",
+          "mode": "list",
+          "cachedResultName": "users",
+          "cachedResultUrl": "https://airtable.com/appniRLLaxmWVKaSj/tblKpsuc4YXqE4jT5"
+        },
+        "filterByFormula": "AND(\n  DAY({Birthday}) = DAY(TODAY()),\n  MONTH({Birthday}) = MONTH(TODAY())\n)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ceb4c0ad-3d3c-4fdf-adf3-1813181ce6b0",
+      "name": "Search records",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "jie3nxpRqEw6xllr",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.fields.Email }}",
+        "subject": "=Happy Birthday 🎉 {{ $json.fields.Name }}",
+        "message": "=Hi {{ $json.fields.Name }},  Wishing you a very Happy Birthday 🎂  May your day be filled with happiness and success.  Best Wishes, Your Company Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        640,
+        16
+      ],
+      "id": "e4d74f48-f414-4612-82c7-feda2c869da0",
+      "name": "Send a message",
+      "webhookId": "ad0515ae-def8-47a5-9a94-caf6e17d12cc",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "BIeycE6fCNGm5FxZ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "bfd228ac-eab1-4bcf-9bba-c53103241725",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search records": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "4d223bd4-7a91-4eb7-a24b-f91e419eb77a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "45cfcca183e6c8929d591a5125441d6e9830c8b39ae14ceea377e54e6361f741"
+  },
+  "id": "HneV3ZwsvX3hrZwa",
+  "tags": []
+}
