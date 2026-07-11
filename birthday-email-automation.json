@@ -17,7 +17,7 @@
         0,
         0
       ],
-      "id": "edb8a99e-1632-4941-9067-41de41637219",
+      "id": "edb8a99e-1632-4941------------19",
       "name": "Schedule Trigger"
     },
     {
@@ -25,17 +25,17 @@
         "operation": "search",
         "base": {
           "__rl": true,
-          "value": "appniRLLaxmWVKaSj",
+          "value": "appn-----------KaSj",
           "mode": "list",
           "cachedResultName": "User",
-          "cachedResultUrl": "https://airtable.com/appniRLLaxmWVKaSj"
+          "cachedResultUrl": "https://airtable.com/app-------aSj"
         },
         "table": {
           "__rl": true,
-          "value": "tblKpsuc4YXqE4jT5",
+          "value": "tblKpsuc----jT5",
           "mode": "list",
           "cachedResultName": "users",
-          "cachedResultUrl": "https://airtable.com/appniRLLaxmWVKaSj/tblKpsuc4YXqE4jT5"
+          "cachedResultUrl": "https://airtable.com/app---------jT5"
         },
         "filterByFormula": "AND(\n  DAY({Birthday}) = DAY(TODAY()),\n  MONTH({Birthday}) = MONTH(TODAY())\n)",
         "options": {}
@@ -46,13 +46,10 @@
         208,
         0
       ],
-      "id": "ceb4c0ad-3d3c-4fdf-adf3-1813181ce6b0",
+      "id": "ceb4c0ad-3d3c-4fdf---------0",
       "name": "Search records",
       "credentials": {
-        "airtableTokenApi": {
-          "id": "jie3nxpRqEw6xllr",
-          "name": "Airtable Personal Access Token account"
-        }
+        
       }
     },
     {
@@ -68,14 +65,11 @@
         640,
         16
       ],
-      "id": "e4d74f48-f414-4612-82c7-feda2c869da0",
+      "id": "e4d74f48-f41----------0",
       "name": "Send a message",
-      "webhookId": "ad0515ae-def8-47a5-9a94-caf6e17d12cc",
+      "webhookId": "ad0515ae-def8-47a5-------------c",
       "credentials": {
-        "gmailOAuth2": {
-          "id": "BIeycE6fCNGm5FxZ",
-          "name": "Gmail account 2"
-        }
+        
       }
     },
     {
@@ -88,7 +82,7 @@
         416,
         0
       ],
-      "id": "bfd228ac-eab1-4bcf-9bba-c53103241725",
+      "id": "bfd228ac-eab1-4b-------25",
       "name": "Loop Over Items"
     }
   ],
@@ -150,11 +144,11 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "4d223bd4-7a91-4eb7-a24b-f91e419eb77a",
+  "versionId": "4d223bd4-7a91-------------77a",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "45cfcca183e6c8929d591a5125441d6e9830c8b39ae14ceea377e54e6361f741"
+    "instanceId": "45cfcca183e6c8929d591a512544-------------------------1"
   },
-  "id": "HneV3ZwsvX3hrZwa",
+  "id": "Hn----wa",
   "tags": []
 }
